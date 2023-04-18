@@ -1,0 +1,84 @@
+﻿@model IEnumerable<SOL_JHEREMIAS_PULACHE.Models.Libro>
+
+@{
+    ViewBag.Title = "Libros";
+}
+
+<h2>Libros</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo", "Create")
+</p>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Categoria)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Autor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Pais)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FechaPublicacion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Editorial)
+                </th>
+                <th>
+                    Opciones
+                </th>
+            </tr>
+        </thead>
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categoria)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Autor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pais)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaPublicacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Editorial)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.IDLibro },
+                                                                        new
+                                                                        {
+                                                                            @class = "btn-style bg-primary"
+                                                                        })
+                    @Html.ActionLink("Detalle", "Details", new { id = item.IDLibro },
+                                                                    new
+                                                                    {
+                                                                        @class = "btn-style bg-info"
+                                                                    })
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IDLibro },
+                                                         new
+                                                         {
+                                                             @class = "btn-style bg-danger"
+                                                         })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<SOL_JHEREMIAS_PULACHE.Models.TipoUsuario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tipo de usuarios</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo", "Create")
+
+</p>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    Opciones
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.IdTipoUsuario },
+                                     new
+                                     {
+                                         @class = "btn-style bg-primary"
+                                     })
+                        @Html.ActionLink("Detalle", "Details", new { id = item.IdTipoUsuario },
+                                                         new
+                                                         {
+                                                             @class = "btn-style bg-info"
+                                                         })
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.IdTipoUsuario },
+                                          new
+                                          {
+                                              @class = "btn-style bg-danger"
+                                          })
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

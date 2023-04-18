@@ -1,0 +1,90 @@
+﻿@model List<SOL_JHEREMIAS_PULACHE.Models.ViewModel.ReporteViewModel>
+
+@{
+    Layout = null;
+}
+
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" />
+
+<div class="row" style="border: 1px solid #000;">
+    <div class="col-xs-1">
+        ID Préstamo
+    </div>
+
+    <div class="col-xs-1">
+        ID
+        libro
+    </div>
+
+    <div class="col-xs-2">
+        Nombre
+        libro
+    </div>
+    <div class="col-xs-1">
+        Fecha
+        préstamo
+    </div>
+    <div class="col-xs-1">
+        DNI
+        Usuario
+    </div>
+    <div class="col-xs-1">
+        Nombre
+        Usuario
+    </div>
+    <div class="col-xs-1">
+        Apellido
+        usuario
+    </div>
+
+    <div class="col-xs-1">
+        Tipo
+        usuario
+    </div>
+
+    <div class="col-xs-1">
+        Tipo
+        lectura
+    </div>
+    <div class="col-xs-1">
+        Fecha
+        Devolución
+    </div>
+</div>
+
+@foreach (var item in Model)
+{
+    <div class="row">
+        <div class="col-xs-1">
+            @item.IdPrestamo
+        </div>
+        <div class="col-xs-1">
+            @item.IdLibro
+        </div>
+        <div class="col-xs-2">
+            @item.NombreLibro
+        </div>
+        <div class="col-xs-1">
+            @item.FechaPrestamo
+        </div>
+        <div class="col-xs-1">
+            @item.DniUsuario
+        </div>
+        <div class="col-xs-1">
+            @item.NombreUsuario
+        </div>
+        <div class="col-xs-1">
+            @item.ApellidoUsuario
+        </div>
+        <div class="col-xs-1">
+            @item.TipoUsuario
+        </div>
+        <div class="col-xs-1">
+            @item.TipoLectura
+        </div>
+        <div class="col-xs-1">
+            @item.FechaDevolucion
+        </div>
+    </div>
+}
+

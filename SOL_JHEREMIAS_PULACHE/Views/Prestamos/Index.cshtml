@@ -1,0 +1,93 @@
+﻿@model IEnumerable<SOL_JHEREMIAS_PULACHE.Models.Prestamo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Prestamos</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo", "Create") |
+    @Html.ActionLink("Exportar reporte", "Imprimir")
+</p>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+
+        <thead>
+            <tr>
+                <th>
+                    Usuario
+                </th>
+                <th scope="col">
+                    Libro
+                </th>
+                <th>
+                    Tipo Prestamo
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FechaPrestamo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FechaDevolucion)
+                </th>
+                <th>
+                    Opciones
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Usuario.Nombres)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Libro.Nombre)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TipoPrestamo.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaPrestamo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaDevolucion)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.IDPrestamo },
+                                                             new
+                                                             {
+                                                                 @class = "btn-style bg-primary"
+                                                             })
+                        @Html.ActionLink("Detalle", "Details", new { id = item.IDPrestamo },
+                                                         new
+                                                         {
+                                                             @class = "btn-style bg-info"
+                                                         })
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.IDPrestamo },
+                                          new
+                                          {
+                                              @class = "btn-style bg-danger"
+                                          })
+
+                        @if (item.FechaDevolucion == null)
+                        {
+                            @Html.ActionLink("Devolver", "DevolverLibro", new { id = item.IDPrestamo },
+                                new
+                                    {
+                                   @class = "btn-style bg-success"
+                                })
+                        }
+
+
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

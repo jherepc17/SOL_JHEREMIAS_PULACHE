@@ -1,0 +1,60 @@
+﻿@model SOL_JHEREMIAS_PULACHE.Models.Prestamo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalle</h2>
+
+<div>
+    <h4>Prestamo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Libro:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Libro.Nombre)
+        </dd>
+
+
+
+        <dt>
+            Usuario:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.Nombres)
+        </dd>
+
+        <dt>
+            Tipo Prestamo:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoPrestamo.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaPrestamo):
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaPrestamo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaDevolucion):
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaDevolucion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IDPrestamo }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>
